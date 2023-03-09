@@ -13,7 +13,7 @@ namespace ConsoleUI
 
             //CategoryTest();
             ProductManager productManager2 = new ProductManager(new EfProductDal());
-            foreach (var product in productManager2.GetProductDetails())
+            foreach (var product in productManager2.GetProductDetails().Data)
             {
                 Console.WriteLine(product.ProductName+" + "+ product.CategoryName);
             }
@@ -33,17 +33,17 @@ namespace ConsoleUI
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetAll())
+            foreach (var product in productManager.GetAll().Data)
             {
                 Console.WriteLine(product.ProductName);
             }
 
-            foreach (var product2 in productManager.GetAllByCategoryId(5))
+            foreach (var product2 in productManager.GetAllByCategoryId(5).Data)
             {
                 Console.WriteLine(product2.ProductName);
             }
             Console.WriteLine("-------------------------------------");
-            foreach (var Product3 in productManager.GetByUnitPrice(10, 25))
+            foreach (var Product3 in productManager.GetByUnitPrice(10, 25).Data)
             {
                 Console.WriteLine(Product3.ProductName);
             }
